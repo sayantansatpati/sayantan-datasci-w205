@@ -16,7 +16,10 @@ sys 0m0.248s
 ---------
 Answer: 4
 ---------
+Number of address tags in input is 1852.
 
+LM-SJC-00870962:1 ssatpati$ grep -ic "<address[^>]*>" o.txt 
+1852
 
 
 ---------
@@ -27,3 +30,6 @@ The part files from each of local & EMR have been combined & sorted, and saved a
 cat part-00000 part-00001 | sort > all
 cat part-00000 part-00001 part-00002 | sort > all
 diff emr-out/all out/all
+
+Specifically, number of address tags in both local & emr is 2042
+
