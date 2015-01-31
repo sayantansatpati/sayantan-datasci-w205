@@ -1,0 +1,35 @@
+--------
+Answer:3
+--------
+Local:
+
+real 2m3.351s
+user 2m4.092s
+sys 0m3.516s
+
+EMR:
+
+real 12m11.981s
+user 0m1.315s
+sys 0m0.248s
+
+---------
+Answer: 4
+---------
+Number of address tags in input is 1852.
+
+LM-SJC-00870962:1 ssatpati$ grep -ic "<address[^>]*>" o.txt 
+1852
+
+
+---------
+Answer: 5
+---------
+The part files from each of local & EMR have been combined & sorted, and saved as "all" in respective dirs. The files are identical which indicates that the output is same. In local 2 reducers were run producing 2 files, whereas in EMR 3 reducers were run producing 3 files, even though the content is the same across both. 
+
+cat part-00000 part-00001 | sort > all
+cat part-00000 part-00001 part-00002 | sort > all
+diff emr-out/all out/all
+
+Specifically, number of address tags in both local & emr is 2042
+
